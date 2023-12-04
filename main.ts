@@ -4,10 +4,19 @@ let achteruit = 2
 let links = 3
 let rechts = 4
 basic.forever(function () {
-	
+    ir_waarde = IR.IR_read()
 })
 basic.forever(function () {
-    ir_waarde += IR.IR_read()
+    let stop = 0
+    if (ir_waarde == stop) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . . .
+            `)
+    }
 })
 basic.forever(function () {
     if (ir_waarde == vooruit) {
@@ -44,18 +53,6 @@ basic.forever(function () {
             # # # # #
             . . . # .
             . . # . .
-            `)
-    }
-})
-basic.forever(function () {
-    let stop = 0
-    if (ir_waarde == stop) {
-        basic.showLeds(`
-            . . . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . . .
             `)
     }
 })
